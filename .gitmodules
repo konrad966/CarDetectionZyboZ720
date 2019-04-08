@@ -1,0 +1,7 @@
+[submodule "Vivado_LiDAR/repo/vivado-boards"]
+	path = Vivado_LiDAR/repo/vivado-boards
+	url = https://github.com/Digilent/vivado-boards.git
+
+[submodule "Vivado_Vision/repo/vivado-boards"]
+	path = Vivado_Vision/repo/vivado-boards
+	url = https://github.com/Digilent/vivado-boards.git
