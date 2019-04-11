@@ -68,6 +68,9 @@ add_files -quiet [glob -nocomplain ../src/ip/*.xci]
 # Add constraints
 add_files -fileset constrs_1 -quiet $src_dir/constraints
 
+# Add simulation sources
+add_files -fileset sim_1 -quiet $src_dir/sim
+
 # Create 'synth_1' run (if not found)
 if {[string equal [get_runs -quiet synth_1] ""]} {
     create_run -name synth_1 -part $part -flow {Vivado Synthesis 2018} -strategy "Vivado Synthesis Defaults" -report_strategy {No Reports} -constrset constrs_1
