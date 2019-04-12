@@ -63,7 +63,7 @@ update_ip_catalog -rebuild
 add_files -quiet $src_dir/hdl
 
 # Add IPs
-add_files -quiet [glob -nocomplain ../src/ip/*.xci]
+add_files -quiet [glob -nocomplain ../src/ip/*/*.xci]
 
 # Add constraints
 add_files -fileset constrs_1 -quiet $src_dir/constraints
