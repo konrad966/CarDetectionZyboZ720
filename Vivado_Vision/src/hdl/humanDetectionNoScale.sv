@@ -34,7 +34,11 @@ module humanDetectionNoScale
 		output wire [7:0]                  dbg_gradient_y,
 		output wire                        dbg_vsync,
 		output wire                        dbg_hsync,
-		output wire                        dbg_de
+		output wire                        dbg_de,
+        output wire [11:0]                 dbg_hog_value,
+		output wire                        dbg_hog_de,
+		output wire [CONFIDENCE_WIDTH-1:0] confidence_out,
+		output wire                        confidence_valid_out
 	);
 
 	localparam                             HOG_BLOCK_SIZE          = 16;
@@ -95,7 +99,7 @@ module humanDetectionNoScale
 		.CELLS_IN_BLOCK     (HOG_CELLS_IN_BLOCK                                ),
 		.BLOCKS_IN_LINE     (HOG_BLOCKS_IN_LINE                                ),
 		.LINES_OF_BLOCKS    (HOG_LINES_OF_BLOCKS                               ),
-		.SVM_MEM_INIT_PATH  ("D:/Praca_magisterska/vivado_projects/vivado_hog_projects/adas17/svm")
+		.SVM_MEM_INIT_PATH  ("C:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/src/svm_2")
 	)
 	svm_inst (
 		.de                  ( hog_de       ),
@@ -107,8 +111,8 @@ module humanDetectionNoScale
 		.bbox_x_end_out      ( bbox_x_end   ),
 		.bbox_y_end_out      ( bbox_y_end   ),
 		.clk                 ( clk          ),
-		.confidence_out      (              ),
-		.confidence_valid_out(              ),
+		.confidence_out      ( confidence_out ),
+		.confidence_valid_out( confidence_valid_out ),
 		.done                ( done         ),
 		.reset               ( reset        )
 	);
@@ -120,6 +124,8 @@ module humanDetectionNoScale
 	assign g_out     = g;
 	assign b_out     = b;
 
+    assign dbg_hog_value = hog_value;
+    assign dbg_hog_de = hog_de;
 endmodule
 
 `default_nettype wire

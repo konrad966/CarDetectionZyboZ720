@@ -3,7 +3,7 @@
 module img_in
 #(
     parameter SIZE_X = 64,
-    parameter SIZE_Y = 64,
+    parameter SIZE_Y = 128,
     parameter H_SIZE = 83,
     parameter LEN_X = $clog2(SIZE_X),
     parameter LEN_Y = $clog2(SIZE_Y)
@@ -24,7 +24,7 @@ reg [3:0] i = 0;
 initial
 begin
     //file = $fopen("C:/PracaInz/tests/in/ImresizeDebug/Dbg_96_96.ppm", "rb");
-    file = $fopen("C:/PracaInz/tests/in/image_96.ppm", "rb");
+    file = $fopen("../others/img_in.ppm", "rb");
     for(i=0; i<13; i=i+1)//Skip first 13 bytes (header)
     begin
         $fgetc(file); 
