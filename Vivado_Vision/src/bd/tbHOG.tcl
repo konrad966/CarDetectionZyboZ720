@@ -124,12 +124,15 @@ set bCheckIPsPassed 1
 set bCheckIPs 1
 if { $bCheckIPs == 1 } {
    set list_check_ips "\ 
+xilinx.com:ip:c_counter_binary:12.0\
 xilinx.com:ip:clk_wiz:6.0\
 xilinx.com:user:parameter_register:1.0\
 xilinx.com:ip:processing_system7:5.5\
+digilentinc.com:ip:rgb2dvi:1.4\
 xilinx.com:ip:proc_sys_reset:5.0\
 xilinx.com:ip:xlconcat:2.1\
 xilinx.com:ip:xlconstant:1.1\
+xilinx.com:ip:xlslice:1.0\
 "
 
    set list_ips_missing ""
@@ -195,10 +198,10 @@ proc create_root_design { parentCell } {
   # Create interface ports
   set DDR [ create_bd_intf_port -mode Master -vlnv xilinx.com:interface:ddrx_rtl:1.0 DDR ]
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
+  set hdmi_rx [ create_bd_intf_port -mode Master -vlnv digilentinc.com:interface:tmds_rtl:1.0 hdmi_rx ]
 
   # Create ports
   set led [ create_bd_port -dir O -from 3 -to 0 led ]
-  set led5_b [ create_bd_port -dir O -from 0 -to 0 led5_b ]
   set sw [ create_bd_port -dir I -from 3 -to 0 sw ]
   set sys_clock [ create_bd_port -dir I -type clk sys_clock ]
   set_property -dict [ list \
@@ -206,12 +209,19 @@ proc create_root_design { parentCell } {
    CONFIG.PHASE {0.000} \
  ] $sys_clock
 
+  # Create instance: c_counter_binary_0, and set properties
+  set c_counter_binary_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:c_counter_binary:12.0 c_counter_binary_0 ]
+  set_property -dict [ list \
+   CONFIG.Output_Width {10} \
+ ] $c_counter_binary_0
+
   # Create instance: clk_wiz_0, and set properties
   set clk_wiz_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:clk_wiz:6.0 clk_wiz_0 ]
   set_property -dict [ list \
    CONFIG.CLKOUT1_DRIVES {BUFG} \
    CONFIG.CLKOUT1_JITTER {237.312} \
    CONFIG.CLKOUT1_PHASE_ERROR {249.865} \
+   CONFIG.CLKOUT1_REQUESTED_OUT_FREQ {100} \
    CONFIG.CLKOUT2_DRIVES {BUFG} \
    CONFIG.CLKOUT3_DRIVES {BUFG} \
    CONFIG.CLKOUT4_DRIVES {BUFG} \
@@ -716,6 +726,9 @@ proc create_root_design { parentCell } {
    CONFIG.NUM_MI {1} \
  ] $ps7_0_axi_periph
 
+  # Create instance: rgb2dvi_0, and set properties
+  set rgb2dvi_0 [ create_bd_cell -type ip -vlnv digilentinc.com:ip:rgb2dvi:1.4 rgb2dvi_0 ]
+
   # Create instance: rst_ps7_0_50M, and set properties
   set rst_ps7_0_50M [ create_bd_cell -type ip -vlnv xilinx.com:ip:proc_sys_reset:5.0 rst_ps7_0_50M ]
 
@@ -731,22 +744,38 @@ proc create_root_design { parentCell } {
    CONFIG.CONST_VAL {0} \
  ] $xlconstant_0
 
+  # Create instance: xlslice_0, and set properties
+  set xlslice_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlslice:1.0 xlslice_0 ]
+  set_property -dict [ list \
+   CONFIG.DIN_FROM {9} \
+   CONFIG.DIN_TO {9} \
+   CONFIG.DIN_WIDTH {10} \
+   CONFIG.DOUT_WIDTH {1} \
+ ] $xlslice_0
+
   # Create interface connections
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
   connect_bd_intf_net -intf_net processing_system7_0_M_AXI_GP0 [get_bd_intf_pins processing_system7_0/M_AXI_GP0] [get_bd_intf_pins ps7_0_axi_periph/S00_AXI]
   connect_bd_intf_net -intf_net ps7_0_axi_periph_M00_AXI [get_bd_intf_pins parameter_register_0/S00_AXI] [get_bd_intf_pins ps7_0_axi_periph/M00_AXI]
+  connect_bd_intf_net -intf_net rgb2dvi_0_TMDS [get_bd_intf_ports hdmi_rx] [get_bd_intf_pins rgb2dvi_0/TMDS]
 
   # Create port connections
-  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins clk_wiz_0/clk_out1] [get_bd_pins xlconcat_0/In0]
-  connect_bd_net -net parameter_register_0_hsync_out [get_bd_ports led5_b] [get_bd_pins parameter_register_0/hsync_out]
+  connect_bd_net -net c_counter_binary_0_Q [get_bd_pins c_counter_binary_0/Q] [get_bd_pins xlslice_0/Din]
+  connect_bd_net -net clk_wiz_0_clk_out1 [get_bd_pins c_counter_binary_0/CLK] [get_bd_pins clk_wiz_0/clk_out1]
+  connect_bd_net -net parameter_register_0_clk_out [get_bd_pins parameter_register_0/clk_out] [get_bd_pins rgb2dvi_0/PixelClk]
+  connect_bd_net -net parameter_register_0_de_out [get_bd_pins parameter_register_0/de_out] [get_bd_pins rgb2dvi_0/vid_pVDE]
+  connect_bd_net -net parameter_register_0_hsync_out [get_bd_pins parameter_register_0/hsync_out] [get_bd_pins rgb2dvi_0/vid_pHSync]
+  connect_bd_net -net parameter_register_0_pixel_out [get_bd_pins parameter_register_0/pixel_out] [get_bd_pins rgb2dvi_0/vid_pData]
+  connect_bd_net -net parameter_register_0_vsync_out [get_bd_pins parameter_register_0/vsync_out] [get_bd_pins rgb2dvi_0/vid_pVSync]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins parameter_register_0/s00_axi_aclk] [get_bd_pins processing_system7_0/FCLK_CLK0] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK] [get_bd_pins ps7_0_axi_periph/ACLK] [get_bd_pins ps7_0_axi_periph/M00_ACLK] [get_bd_pins ps7_0_axi_periph/S00_ACLK] [get_bd_pins rst_ps7_0_50M/slowest_sync_clk]
   connect_bd_net -net processing_system7_0_FCLK_RESET0_N [get_bd_pins processing_system7_0/FCLK_RESET0_N] [get_bd_pins rst_ps7_0_50M/ext_reset_in]
   connect_bd_net -net rst_ps7_0_50M_peripheral_aresetn [get_bd_pins parameter_register_0/s00_axi_aresetn] [get_bd_pins ps7_0_axi_periph/ARESETN] [get_bd_pins ps7_0_axi_periph/M00_ARESETN] [get_bd_pins ps7_0_axi_periph/S00_ARESETN] [get_bd_pins rst_ps7_0_50M/peripheral_aresetn]
   connect_bd_net -net sw_1 [get_bd_ports led] [get_bd_ports sw] [get_bd_pins parameter_register_0/sw]
   connect_bd_net -net sys_clock_1 [get_bd_ports sys_clock] [get_bd_pins clk_wiz_0/clk_in1]
   connect_bd_net -net xlconcat_0_dout [get_bd_pins processing_system7_0/IRQ_F2P] [get_bd_pins xlconcat_0/dout]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins clk_wiz_0/reset] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins clk_wiz_0/reset] [get_bd_pins rgb2dvi_0/aRst] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net xlslice_0_Dout [get_bd_pins parameter_register_0/clk_in] [get_bd_pins xlconcat_0/In0] [get_bd_pins xlslice_0/Dout]
 
   # Create address segments
   create_bd_addr_seg -range 0x00010000 -offset 0x43C00000 [get_bd_addr_spaces processing_system7_0/Data] [get_bd_addr_segs parameter_register_0/S00_AXI/S00_AXI_reg] SEG_parameter_register_0_S00_AXI_reg

@@ -19,6 +19,7 @@
         input wire clk_in,
         output wire [23:0] pixel_out,
         output wire clk_out,
+        output wire de_out,
         output wire hsync_out,
         output wire vsync_out,
 		// User ports ends
@@ -78,6 +79,7 @@
 		.pixel_out(pixel_out),
 		.clk_in(clk_in),
 		.clk_out(clk_out),
+		.de_out(de_out),
 		.hsync_out(hsync_out),
 		.vsync_out(vsync_out)
 	);

@@ -19,6 +19,7 @@
         input wire clk_in,
         output wire [23:0] pixel_out,
         output wire clk_out,
+        output wire de_out,
         output wire hsync_out,
         output wire vsync_out,
 		// User ports ends
@@ -410,6 +411,7 @@
     assign pixel_out = slv_reg0[23:0];
     assign hsync_out = slv_reg1[0];
     assign vsync_out = slv_reg1[1];
+    assign de_out = slv_reg1[2];
     assign clk_out = clk_in;
 
 	// User logic ends
