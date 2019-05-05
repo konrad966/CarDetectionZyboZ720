@@ -21,6 +21,8 @@ reg [1:0] state = 0;
 reg cnt_wait = 0;
 reg flag_bram_out = 0;
 wire flag_bram_valid;
+reg [11:0] cnt_clusters = 0;
+
 always @ (posedge clk)
 begin
     case(state)
@@ -81,6 +83,23 @@ begin
             end
         end
     endcase
+    
+    if(del_flag_valid_remove)
+    begin
+        cnt_clusters <= cnt_clusters + 1;
+        if(cnt_clusters >= 40*80-1)
+        begin
+            cnt_clusters <= 0;
+            cnt_2 <= 0;
+            cnt_2_col <= 0;
+            cnt_col <= 0;
+            cnt_col_init <= 0;
+            cnt_row <= 0;
+            cnt_row_init <= 0;
+            
+            state <= 0;
+        end
+    end
 end
 
 delay # (

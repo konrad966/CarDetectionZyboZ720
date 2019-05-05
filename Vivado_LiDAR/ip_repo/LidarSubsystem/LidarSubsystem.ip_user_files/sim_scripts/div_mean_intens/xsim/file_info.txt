@@ -1,1 +1,0 @@
-div_mean_intens.vhd,vhdl,xil_defaultlib,../../../../LidarSubsystem.srcs/sources_1/ip/div_mean_intens/sim/div_mean_intens.vhd,

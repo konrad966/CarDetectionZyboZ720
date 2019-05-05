@@ -10,6 +10,7 @@ module save_bram_address(
 // count to write into BRAM
 reg [1:0] cnt_3_write = 0;
 reg [5:0] cnt_write = 0;
+reg [11:0] cnt_clusters = 0;
 always @ (posedge clk)
 begin
     if(flag_valid_remove)
@@ -19,6 +20,14 @@ begin
         begin
             cnt_3_write <= cnt_3_write + 1;
             cnt_write <= 6'b0;
+        end
+        
+        cnt_clusters <= cnt_clusters + 1;
+        if(cnt_clusters >= 40*80-1)
+        begin
+            cnt_clusters <= 0;
+            cnt_write <= 6'b0;
+            cnt_3_write <= 6'b0;
         end
     end
 end

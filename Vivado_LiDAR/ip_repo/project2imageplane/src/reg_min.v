@@ -2,7 +2,7 @@
 
 module reg_min
 #(
-    parameter N = 35
+    parameter N = 37
 )
 (
     input clk,
@@ -12,11 +12,11 @@ module reg_min
     output [N-1:0]q
 );
 
-reg [N-1:0]val = 35'h3ffffffff; //2^34 - 1
+reg signed [N-1:0]val = 2**(N-1)-1; //2^34 - 1
 
 always @(posedge clk)
 begin
-    if(rst) val <= 35'h3ffffffff; //2^34 - 1
+    if(rst) val <= 2**(N-1)-1;
     else begin
         if(ce) val <= d;
         else   val <= val;

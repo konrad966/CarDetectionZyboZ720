@@ -38,15 +38,15 @@ module draw_bbox
     input [23:0] rgb_in,
     
     input [63:0] bbox_0,
-    //input [63:0] bbox_1,
-    //input [63:0] bbox_2,
-    //input [63:0] bbox_3,
-    //input [63:0] bbox_4,
-    //input [63:0] bbox_5,
-    //input [63:0] bbox_6,
-    //input [63:0] bbox_7,
-    //input [63:0] bbox_8,
-    //input [63:0] bbox_9,
+    input [63:0] bbox_1,
+    input [63:0] bbox_2,
+    input [63:0] bbox_3,
+    input [63:0] bbox_4,
+    input [63:0] bbox_5,
+    input [63:0] bbox_6,
+    input [63:0] bbox_7,
+    input [63:0] bbox_8,
+    input [63:0] bbox_9,
                                
     
     output de_out,
@@ -110,59 +110,59 @@ assign bbox_ys[0] = bbox_0[47:32];
 assign bbox_ye[0] = bbox_0[60:48];
 assign colour[0] = bbox_0[63:61];
 
-//assign bbox_xs[1] = bbox_1[15:0];
-//assign bbox_xe[1] = bbox_1[31:16];
-//assign bbox_ys[1] = bbox_1[47:32];
-//assign bbox_ye[1] = bbox_1[60:48];
-//assign colour[1] = bbox_1[63:61];
+assign bbox_xs[1] = bbox_1[15:0];
+assign bbox_xe[1] = bbox_1[31:16];
+assign bbox_ys[1] = bbox_1[47:32];
+assign bbox_ye[1] = bbox_1[60:48];
+assign colour[1] = bbox_1[63:61];
 
-//assign bbox_xs[2] = bbox_2[15:0];
-//assign bbox_xe[2] = bbox_2[31:16];
-//assign bbox_ys[2] = bbox_2[47:32];
-//assign bbox_ye[2] = bbox_2[60:48];
-//assign colour[2] = bbox_2[63:61];
+assign bbox_xs[2] = bbox_2[15:0];
+assign bbox_xe[2] = bbox_2[31:16];
+assign bbox_ys[2] = bbox_2[47:32];
+assign bbox_ye[2] = bbox_2[60:48];
+assign colour[2] = bbox_2[63:61];
 
-//assign bbox_xs[3] = bbox_3[15:0];
-//assign bbox_xe[3] = bbox_3[31:16];
-//assign bbox_ys[3] = bbox_3[47:32];
-//assign bbox_ye[3] = bbox_3[60:48];
-//assign colour[3] = bbox_3[63:61];
+assign bbox_xs[3] = bbox_3[15:0];
+assign bbox_xe[3] = bbox_3[31:16];
+assign bbox_ys[3] = bbox_3[47:32];
+assign bbox_ye[3] = bbox_3[60:48];
+assign colour[3] = bbox_3[63:61];
 
-//assign bbox_xs[4] = bbox_4[15:0];
-//assign bbox_xe[4] = bbox_4[31:16];
-//assign bbox_ys[4] = bbox_4[47:32];
-//assign bbox_ye[4] = bbox_4[60:48];
-//assign colour[4] = bbox_4[63:61];
+assign bbox_xs[4] = bbox_4[15:0];
+assign bbox_xe[4] = bbox_4[31:16];
+assign bbox_ys[4] = bbox_4[47:32];
+assign bbox_ye[4] = bbox_4[60:48];
+assign colour[4] = bbox_4[63:61];
 
-//assign bbox_xs[5] = bbox_5[15:0];
-//assign bbox_xe[5] = bbox_5[31:16];
-//assign bbox_ys[5] = bbox_5[47:32];
-//assign bbox_ye[5] = bbox_5[60:48];
-//assign colour[5] = bbox_5[63:61];
+assign bbox_xs[5] = bbox_5[15:0];
+assign bbox_xe[5] = bbox_5[31:16];
+assign bbox_ys[5] = bbox_5[47:32];
+assign bbox_ye[5] = bbox_5[60:48];
+assign colour[5] = bbox_5[63:61];
 
-//assign bbox_xs[6] = bbox_6[15:0];
-//assign bbox_xe[6] = bbox_6[31:16];
-//assign bbox_ys[6] = bbox_6[47:32];
-//assign bbox_ye[6] = bbox_6[60:48];
-//assign colour[6] = bbox_6[63:61];
+assign bbox_xs[6] = bbox_6[15:0];
+assign bbox_xe[6] = bbox_6[31:16];
+assign bbox_ys[6] = bbox_6[47:32];
+assign bbox_ye[6] = bbox_6[60:48];
+assign colour[6] = bbox_6[63:61];
 
-//assign bbox_xs[7] = bbox_7[15:0];
-//assign bbox_xe[7] = bbox_7[31:16];
-//assign bbox_ys[7] = bbox_7[47:32];
-//assign bbox_ye[7] = bbox_7[60:48];
-//assign colour[7] = bbox_7[63:61];
+assign bbox_xs[7] = bbox_7[15:0];
+assign bbox_xe[7] = bbox_7[31:16];
+assign bbox_ys[7] = bbox_7[47:32];
+assign bbox_ye[7] = bbox_7[60:48];
+assign colour[7] = bbox_7[63:61];
 
-//assign bbox_xs[8] = bbox_8[15:0];
-//assign bbox_xe[8] = bbox_8[31:16];
-//assign bbox_ys[8] = bbox_8[47:32];
-//assign bbox_ye[8] = bbox_8[60:48];
-//assign colour[8] = bbox_8[63:61];
+assign bbox_xs[8] = bbox_8[15:0];
+assign bbox_xe[8] = bbox_8[31:16];
+assign bbox_ys[8] = bbox_8[47:32];
+assign bbox_ye[8] = bbox_8[60:48];
+assign colour[8] = bbox_8[63:61];
 
-//assign bbox_xs[9] = bbox_9[15:0];
-//assign bbox_xe[9] = bbox_9[31:16];
-//assign bbox_ys[9] = bbox_9[47:32];
-//assign bbox_ye[9] = bbox_9[60:48];
-//assign colour[9] = bbox_9[63:61];
+assign bbox_xs[9] = bbox_9[15:0];
+assign bbox_xe[9] = bbox_9[31:16];
+assign bbox_ys[9] = bbox_9[47:32];
+assign bbox_ye[9] = bbox_9[60:48];
+assign colour[9] = bbox_9[63:61];
 
 
 
@@ -186,7 +186,7 @@ assign vsync[0] = vsync_in;
 
 genvar k;
 generate 
-for (k=0; k < 1; k=k+1) begin
+for (k=0; k < 10; k=k+1) begin
 
 signle_bbox
 #(  .COUNTER_WIDTH(COUNTER_WIDTH)
@@ -213,15 +213,15 @@ signle_bbox
     .hsync_out(hsync[k+1]),
     .vsync_out(vsync[k+1]) 
 );
-end;
-endgenerate;
+end
+endgenerate
 
 			
-assign de_out = de[1];
-assign hsync_out = hsync[1];
-assign vsync_out = vsync[1];
+assign de_out = de[10];
+assign hsync_out = hsync[10];
+assign vsync_out = vsync[10];
 
-assign rgb_out = rgb[1];
+assign rgb_out = rgb[10];
 
 
 	

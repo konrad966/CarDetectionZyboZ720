@@ -1,4 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../LidarSubsystem.srcs/sources_1/ip/add_hist/sim/add_hist.vhd" \
-
-nosort

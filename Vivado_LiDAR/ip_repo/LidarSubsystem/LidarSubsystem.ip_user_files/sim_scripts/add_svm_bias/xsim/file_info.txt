@@ -1,1 +1,0 @@
-add_svm_bias.vhd,vhdl,xil_defaultlib,../../../../LidarSubsystem.srcs/sources_1/ip/add_svm_bias/sim/add_svm_bias.vhd,

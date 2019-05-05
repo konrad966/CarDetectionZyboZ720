@@ -2,7 +2,7 @@
 
 module reg_max
 #(
-    parameter N = 35
+    parameter N = 37
 )
 (
     input clk,
@@ -12,11 +12,11 @@ module reg_max
     output [N-1:0]q
 );
 
-reg [N-1:0]val = 35'h400000000; //-2^34
+reg signed [N-1:0]val = 0; //-2^34
 
 always @(posedge clk)
 begin
-    if(rst) val <= 35'h400000000; //-2^34
+    if(rst) val <= 0; //-2^34
     else begin
         if(ce) val <= d;
         else   val <= val;

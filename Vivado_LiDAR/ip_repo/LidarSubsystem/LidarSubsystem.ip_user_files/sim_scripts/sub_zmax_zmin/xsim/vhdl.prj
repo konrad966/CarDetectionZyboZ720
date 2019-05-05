@@ -1,4 +1,0 @@
-vhdl xil_defaultlib  \
-"../../../../LidarSubsystem.srcs/sources_1/ip/sub_zmax_zmin/sim/sub_zmax_zmin.vhd" \
-
-nosort
