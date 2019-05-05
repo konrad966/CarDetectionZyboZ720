@@ -266,7 +266,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ef36b2f7</spirit:value>
+            <spirit:value>909972f2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -282,7 +282,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>viewChecksum</spirit:name>
-            <spirit:value>ef36b2f7</spirit:value>
+            <spirit:value>909972f2</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -909,8 +909,8 @@
         <xilinx:taxonomy>AXI_Peripheral</xilinx:taxonomy>
       </xilinx:taxonomies>
       <xilinx:displayName>parameter_register_v1.0</xilinx:displayName>
-      <xilinx:coreRevision>4</xilinx:coreRevision>
-      <xilinx:coreCreationDateTime>2019-04-29T17:47:47Z</xilinx:coreCreationDateTime>
+      <xilinx:coreRevision>5</xilinx:coreRevision>
+      <xilinx:coreCreationDateTime>2019-05-01T13:44:51Z</xilinx:coreCreationDateTime>
       <xilinx:tags>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@61157232_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@353b28ec_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
@@ -953,13 +953,24 @@
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5f2e77b3_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@5044140_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
         <xilinx:tag xilinx:name="ui.data.coregen.dd@b9deda6_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@48f3b95d_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@d6944e2_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1866ebed_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@42093efa_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@50139355_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@2fcfa548_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@3447142_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@26257e2d_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@56ae53cf_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@54c67d1f_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
+        <xilinx:tag xilinx:name="ui.data.coregen.dd@1e313821_ARCHIVE_LOCATION">c:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/ip_repo/parameter_register_1.0</xilinx:tag>
       </xilinx:tags>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2018.3</xilinx:xilinxVersion>
       <xilinx:checksum xilinx:scope="busInterfaces" xilinx:value="7a63f3fc"/>
       <xilinx:checksum xilinx:scope="memoryMaps" xilinx:value="ed1368d5"/>
-      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="9c60a4ca"/>
+      <xilinx:checksum xilinx:scope="fileGroups" xilinx:value="2e3afdb3"/>
       <xilinx:checksum xilinx:scope="ports" xilinx:value="04546fa8"/>
       <xilinx:checksum xilinx:scope="hdlParameters" xilinx:value="6992ea72"/>
       <xilinx:checksum xilinx:scope="parameters" xilinx:value="9a75b33f"/>

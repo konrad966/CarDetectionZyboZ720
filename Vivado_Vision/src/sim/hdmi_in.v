@@ -25,7 +25,7 @@ module hdmi_in
   parameter hfp=8; //front porch
   parameter hs=2;  //sync len
   //vertical
-  parameter vr=128; //resolution
+  parameter vr=64; //resolution
   parameter vbp=8; //back porch
   parameter vfp=2; //front porch //default: 8
   parameter vs=4;   //sync len
@@ -121,7 +121,7 @@ begin
 	 //TB only
 	 vsc=vsc+1;
 
-    rgbfile = $fopen("C:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/src/others/img_in.ppm","rb");
+    rgbfile = $fopen("C:/DDC_Repo/CarDetectionZyboZ720/Vivado_Vision/src/others/image_64.ppm","rb");
 
 	 // read header file
 	 for(i=0;i<13;i=i+1)

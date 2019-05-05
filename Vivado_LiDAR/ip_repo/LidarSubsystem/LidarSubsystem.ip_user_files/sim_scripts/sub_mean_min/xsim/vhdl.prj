@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../LidarSubsystem.srcs/sources_1/ip/sub_mean_min/sim/sub_mean_min.vhd" \
+
+nosort

@@ -52,10 +52,10 @@ repo/*/ip/*/generated_ip
 !repo/*/ip/*/src/*/*.tcl
 
 # Make sure we keep only xci files in ip src subfolder
-src/ip/*
-!src/ip/*/
-!src/ip/*/*.xci
-!src/ip/*/*.prj
+./src/ip/**
+!./src/ip/*/
+!./src/ip/*/*.xci
+!./src/ip/*/*.prj
 
 # Do not ignore anything in src/others
 !src/others/*

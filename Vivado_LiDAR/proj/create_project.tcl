@@ -10,8 +10,8 @@ puts "INFO: Creating new project in $dest_dir"
 cd $dest_dir
 
 # Set the reference directory for source file relative paths (by default the value is script directory path)
-set proj_name "project_name"
-set bd_name "bd_name"
+set proj_name "VivadoLiDAR"
+set bd_name "VivadoLiDAR"
 set part "xc7z020clg400-1"
 #Optional
 set board_part "digilentinc.com:zybo-z7-20:part0:1.0"
@@ -23,7 +23,7 @@ set origin_dir ".."
 set orig_proj_dir "[file normalize "$origin_dir/proj"]"
 
 set src_dir [file normalize $origin_dir/src]
-set repo_dir [file normalize $origin_dir/repo]
+set repo_dir [file normalize $origin_dir/ip_repo]
 
 # Create project
 create_project $proj_name $dest_dir
@@ -63,10 +63,13 @@ update_ip_catalog -rebuild
 add_files -quiet $src_dir/hdl
 
 # Add IPs
-add_files -quiet [glob -nocomplain ../src/ip/*.xci]
+add_files -quiet [glob -nocomplain ../src/ip/*/*.xci]
 
 # Add constraints
 add_files -fileset constrs_1 -quiet $src_dir/constraints
+
+# Add simulation sources
+add_files -fileset sim_1 -quiet $src_dir/sim
 
 # Create 'synth_1' run (if not found)
 if {[string equal [get_runs -quiet synth_1] ""]} {

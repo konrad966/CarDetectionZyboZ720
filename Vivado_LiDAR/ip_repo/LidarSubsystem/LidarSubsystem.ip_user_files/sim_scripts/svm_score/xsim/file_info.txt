@@ -1,0 +1,2 @@
+svm_score.v,verilog,xil_defaultlib,../../../../LidarSubsystem.srcs/sources_1/ip/svm_score/sim/svm_score.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

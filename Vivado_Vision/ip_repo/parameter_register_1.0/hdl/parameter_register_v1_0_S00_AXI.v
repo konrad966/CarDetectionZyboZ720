@@ -409,9 +409,9 @@
 	//reg1 - sync signals
 	//reg2 - sw test
     assign pixel_out = slv_reg0[23:0];
-    assign hsync_out = slv_reg1[0];
-    assign vsync_out = slv_reg1[1];
-    assign de_out = slv_reg1[2];
+    assign hsync_out = slv_reg0[29];
+    assign vsync_out = slv_reg0[30];
+    assign de_out = slv_reg0[31];
     assign clk_out = clk_in;
 
 	// User logic ends

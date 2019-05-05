@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../LidarSubsystem.srcs/sources_1/ip/hwl_calc/sim/hwl_calc.vhd" \
+
+nosort

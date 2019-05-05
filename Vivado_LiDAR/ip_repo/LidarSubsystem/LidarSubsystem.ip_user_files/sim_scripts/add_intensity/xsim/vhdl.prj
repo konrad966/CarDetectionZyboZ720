@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../LidarSubsystem.srcs/sources_1/ip/add_intensity/sim/add_intensity.vhd" \
+
+nosort

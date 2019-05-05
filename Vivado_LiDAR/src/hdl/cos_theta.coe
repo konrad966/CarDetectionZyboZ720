@@ -1,2 +1,0 @@
-memory_initialization_radix=16;
-memory_initialization_vector=3a5 3a8 3ab 3ae 3b1 3b4 3b7 3ba 3bd 3bf 3c2 3c5 3c7 3ca 3cc 3cf 3d1 3d4 3d6 3d8 3da 3dc 3de 3e0 3e2 3e4 3e6 3e7 3e9 3eb 3ec 3ee 3ef 3f1 3f2 3f3 3f4 3f5 3f7 3f8 3f9 3f9 3fa 3fb 3fc 3fd 3fd 3fe 3fe 3ff 3ff 3ff 400 400 400 400 400 400 400 400 3ff 3ff 3ff 3fe;
