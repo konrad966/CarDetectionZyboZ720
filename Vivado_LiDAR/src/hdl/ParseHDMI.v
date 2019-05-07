@@ -21,13 +21,13 @@ reg flag_reg = 0;
 reg clk_out_reg = 0;
 
 assign clk_out = clk_out_reg;
-assign flag_valid_out = flag_reg;
+assign flag_valid_out = flag_reg; //TODO Czy dodanie "& de" jest dobra zmiana? 
 assign x_out = x_reg;
 assign y_out = y_reg;
 assign z_out = z_reg;
 assign intens_out = intens_reg;
 
-reg [2:0] state = 0;  //TODO liczba bitow
+reg [1:0] state = 0; 
 
 always @ (posedge clk)
 begin
@@ -61,13 +61,10 @@ begin
             if (de)
             begin
                 y_reg[7:0] <= pixel_in[15:8];
-                flag_reg <= pixel_in[0]; 
-                state <= 4; 
+                flag_reg <= pixel_in[0];
+                clk_out_reg <= 1;
+                state <= 0;
             end
-        end
-        4:begin
-            clk_out_reg <= 1;
-            state <= 0;
         end
     endcase
 end
